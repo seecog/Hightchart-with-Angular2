@@ -1,0 +1,17 @@
+<form [formGroup]="frm">
+<div>
+First Name : <input formControlName="fnm">
+<div style="color:red;" *ngIf="frm.get('fnm').errors && frm.get('fnm').touched">
+<span *ngIf="frm.get('fnm').errors['required']">First name required</span>
+<span *ngIf="frm.get('fnm').errors['minlength']">Minimum 2 characters required</span>
+<span *ngIf="frm.get('fnm').errors['maxlength']">maximum 10 characters allowed</span>
+<span *ngIf="frm.get('fnm').errors['pattern']">only characters  required</span>
+</div>
+</div>
+<p>
+Last Name : <input formControlName="lnm">
+</p>
+<p>
+<button [disabled]="!frm.valid" (click)="saveRecord()">Register</button>
+</p>
+</form>
